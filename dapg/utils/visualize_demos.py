@@ -9,6 +9,7 @@ DESC = '''
 Helper script to visualize demonstrations.\n
 USAGE:\n
     Visualizes demonstrations on the env\n
+    $ python utils/visualize_demos --env_name relocate-v0\n
 '''
 
 # MAIN =========================================================

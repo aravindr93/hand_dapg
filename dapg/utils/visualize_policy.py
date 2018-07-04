@@ -10,6 +10,7 @@ DESC = '''
 Helper script to visualize policy (in mjrl format).\n
 USAGE:\n
     Visualizes policy on the env\n
+    $ python utils/visualize_policy --env_name relocate-v0 --policy policies/relocate-v0.pickle --mode evaluation\n
 '''
 
 # MAIN =========================================================
