@@ -1,6 +1,6 @@
 # DAPG for Dexterous Hand Manipulation
 
-This repository is to accompany the paper [Learning Complex Dexterous Manipulation with Deep Reinforcement Learning and Demonstrations](https://arxiv.org/abs/1709.10087), presented at RSS 2018.
+This repository is to accompany the project, [Learning Complex Dexterous Manipulation with Deep Reinforcement Learning and Demonstrations](https://sites.google.com/view/deeprl-dexterous-manipulation), presented at RSS 2018. Please see the project page for the paper and video demonstration of results.
 
 ## Organization
 
