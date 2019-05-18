@@ -2,6 +2,7 @@ import pickle
 from mjrl.utils.gym_env import GymEnv
 from settings import *
 import mj_envs
+from mj_envs.utils import hand_vil
 
 def ensure_dir(directory):
     if not os.path.exists(directory):
@@ -10,8 +11,8 @@ def ensure_dir(directory):
 
 
 CAMERA_NAME = 'vil_camera'
-ENV_NAME = 'hand_hammer'
-VIZ_FOLDER = 'hand_hammer_videos'
+ENV_NAME = 'hand_door'
+VIZ_FOLDER = 'hand_door_videos'
 FULL_POLICY_PATH = ''
 
 
@@ -22,11 +23,11 @@ def main():
     print('usind %d horizon', e.horizon)
     policy.model.eval()
     policy.old_model.eval()
-    visualize_policy_offscreen(ensure_dir(os.path.join(VIDOES_FOLDER, VIZ_FOLDER)) + '/', ENV_NAME, policy=policy,
-                                 num_episodes=3, horizon=e.horizon, mode='evaluation', use_img=True, use_seq=True,
-                                 camera_name=CAMERA_NAME, pickle_dump=False)
+    hand_vil.visualize_policy_offscreen(gym_env=e, save_loc=ensure_dir(os.path.join(VIDOES_FOLDER, VIZ_FOLDER)) + '/', policy=policy, use_tactile=False,
+                                 num_episodes=3, horizon=e.horizon, mode='evaluation',
+                                 camera_name=CAMERA_NAME, pickle_dump=False, frame_size_model=FRAME_SIZE)
     del (e)
 
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     main()

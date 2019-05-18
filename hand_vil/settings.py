@@ -17,7 +17,7 @@ POLICIES_DIR = os.path.join(DATA_DIR, 'policies')
 TRAIN_DATA_DIR = os.path.join(DATA_DIR, 'train_data')
 VAL_DATA_DIR = os.path.join(DATA_DIR, 'val_data')
 
-EXPERT_POLICIES_DIR = os.path.join(MAIN_DIR, '..' 'expert_policies')
+EXPERT_POLICIES_DIR = os.path.join(MAIN_DIR, '..', 'dapg', 'policies')
 TRAIN_TRAJS = 5000
 TEST_TRAJS = 100
 
@@ -31,11 +31,11 @@ ENV_ID = {
 
 EXPERT_POLICIES = {
     # Add  Other envs here
-    'hand_pickup': 'relocate.pickle',
-    'hand_hammer': 'hammer.pickle',
-    'hand_pen': 'pen.pickle',
-    'hand_door': 'door.pickle',
-    'point_mass': 'point_mass.pickle',
+    'hand_pickup': 'relocate-v0.pickle',
+    'hand_hammer': 'hammer-v0.pickle',
+    'hand_pen': 'pen-v0.pickle',
+    'hand_door': 'door-v0.pickle',
+    # 'point_mass': 'point_mass.pickle',
 }
 
 ENTRY_POINT = {
@@ -47,10 +47,10 @@ ENTRY_POINT = {
 }
 
 VIZ_ENV_IDS = {
-    'hand_hammer': 'mjrl_hand_hammer_viz-v0',
-    'hand_door': 'mjrl_hand_door_viz-v0',
-    'hand pickup': 'mjrl_hand_pickup_viz-v0',
-    'hand_pen': 'mjrl_hand_pen_viz-v0'
+    'hand_hammer': 'hammer-v0',
+    'hand_door': 'door-v0',
+    'hand pickup': 'relocate-v0',
+    'hand_pen': 'pen-v0'
 }
 
 FRAME_SIZE = (128, 128)

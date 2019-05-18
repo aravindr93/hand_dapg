@@ -4,7 +4,7 @@ from mjrl.utils.transforms import ClipAction, ToCudaTensor
 from mjrl.utils.dataset import get_dataset_from_files
 # Torch dataloader for loading training and validation data into network [data as described above].
 from torch.utils.data import DataLoader
-from settings import *
+from hand_vil.settings import *
 # Multi-layer perceptron policy
 from mjrl.policies.gaussian_cnn import CNN
 # DAgger [Dataset Aggregation] algorithm, as described in Ross et. al. paper
@@ -91,10 +91,9 @@ def do_dagger(config):
 
     # policy = MLP(e.spec, hidden_sizes=(64,64), seed=SEED)
     e = make_gym_env(config['env_id'], config)
-    robot_info_dim = e.env.env.get_proprioception(use_tactile=config['use_tactile'])
+    robot_info_dim = len(e.env.env.get_proprioception(use_tactile=config['use_tactile']))
 
     policy = CNN(action_dim=transformed_train_dataset.action_dim,
-                 use_seq=True,
                  robot_info_dim=robot_info_dim,
                  action_stats=transformed_train_dataset.get_action_stats(),
                  robot_info_stats=transformed_train_dataset.get_robot_info_stats(),
@@ -111,7 +110,7 @@ def do_dagger(config):
         viz_policy=policy,
         old_data_loader=train_dataloader,
         val_data_loader=val_dataloader,
-        log_dir=os.path.join(config['id'], 'dagger'),
+        log_dir=os.path.join(LOG_DIR, config['id'], 'dagger'),
         pol_dir_name=viz_policy_folder_dagger,
         save_epoch=1,
         beta_decay=config['beta_decay'],
@@ -126,7 +125,8 @@ def do_dagger(config):
         sliding_window=config['sliding_window'],
         device_id=config['device_id'],
         use_cuda=config['use_cuda'],
-        frame_size=FRAME_SIZE)
+        frame_size=FRAME_SIZE,
+        use_tactile=config['use_tactile'])
 
     dagger_algo.train()
     trained_policy = dagger_algo.viz_policy
@@ -194,8 +194,8 @@ def gen_data(env, data_dir, num_files, trajs_per_file, config):
 
 
 def make_gym_env(id, config):
-    e = GymEnv(id, use_tactile=config['use_tactile'])
-    config['env_spec'] = e.spec.as_dict()
+    e = GymEnv(id)
+    config['env_spec'] = e.spec.__dict__
     return e
 
 
