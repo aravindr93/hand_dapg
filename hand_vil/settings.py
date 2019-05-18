@@ -49,7 +49,7 @@ ENTRY_POINT = {
 VIZ_ENV_IDS = {
     'hand_hammer': 'hammer-v0',
     'hand_door': 'door-v0',
-    'hand pickup': 'relocate-v0',
+    'hand_pickup': 'relocate-v0',
     'hand_pen': 'pen-v0'
 }
 
