@@ -14,21 +14,16 @@ The overall project is built on top of these three repositories:
 Each repository above contains detailed setup instructions. 
 1. **Step 1:** Install [mjrl](https://github.com/aravindr93/mjrl), using instructions in the repository ([direct link](https://github.com/aravindr93/mjrl/tree/master/setup)). `mjrl` comes with an anaconda environment which helps to easily import and use a variety of MuJoCo tasks.
 2. **Step 2:** Install [mj_envs](https://github.com/vikashplus/mj_envs) by following the instructions in the repository. Note that `mj_envs` uses git submodules, and hence must be cloned correctly per instructions in the repo.
-3. **Step 3:** After setting up `mjrl` and `mj_envs`, Add them to your python path.
+3. **Step 3:** After setting up `mjrl` and `mj_envs`, Add them to your python path alongside `hand_vil`.
 ```
 $ export PYTHONPATH=$PYTHONPATH:<your_path>/mjrl
 $ export PYTHONPATH=$PYTHONPATH:<your_path>/mj_envs
+$ export PYTHONPATH=$PYTHONPATH:<your_path>/hand_dapg/hand_vil
 ```
 
 ## Training the Visuomotor policies
 
 1. **Step 1:** Make a "local_settings.py" file and set the variable "MAIN_DIR" to point to the root folder of the project. Consult local_settings.py.sample.
-
-2. **Step 2:** Clone this repo. Replace the environment XML files in mj_envs with that present in mjrl_mod/envs/assests, as we need to add the cameras for training the visuomotor policies. Namely:
-* mj_envs/hand_manipulation_suite/assets/DAPG_door.xml to be relaced by mjrl_mod/envs/assets/DAPG_door.xml
-* mj_envs/hand_manipulation_suite/assets/DAPG_hammer.xml to be relaced by mjrl_mod/envs/assets/DAPG_hammer.xml
-* mj_envs/hand_manipulation_suite/assets/DAPG_pen.xml to be relaced by mjrl_mod/envs/assets/DAPG_pen.xml
-* mj_envs/hand_manipulation_suite/assets/DAPG_relocate.xml to be relaced by mjrl_mod/envs/assets/DAPG_relocate.xml
 
 3. **Step 3** We already have the expert policies for each of the environments fetched from [hand_dapg](https://github.com/aravindr93/hand_dapg). So we are ready to train the visual policy for any of the above 4 environments.
 * It is highly reccomended that you use a machine with a GPU for faster training. If you are not planning on using a GPU, make sure to set `use_cuda` in the config to False.
