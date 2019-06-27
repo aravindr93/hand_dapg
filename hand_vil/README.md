@@ -1,14 +1,6 @@
 # hand_vil
 Learning Deep Visuomotor Policies for Dexterous Hand Manipulation
 
-## Background
-
-The overall project is built on top of these three repositories:
-
-1. [mjrl](https://github.com/aravindr93/mjrl) provides a suite of learning algorithms for various continuous control tasks simulated in MuJoCo. This includes the NPG implementation and the DAPG algorithm used in the paper.
-2. [mj_envs](https://github.com/vikashplus/mj_envs) provides a suite of continuous control tasks simulated in MuJoCo, including the dexterous hand manipulation tasks used in the paper.
-3. [hand_dapg](https://github.com/aravindr93/hand_dapg) (this repository) serves as the landing page and contains the human demonstrations and pre-trained policies for the tasks.
-
 ## Setup
 
 Each repository above contains detailed setup instructions. 
@@ -40,10 +32,19 @@ $ python run.py
 Note that this will save the generated training data to `gen_data/data/<name_of_run>/train_data`
 and will save the generated validation data to `gen_data/data/<name_of_run>/val_data`, and the trained policy
 to `gen_data/data/<name_of_run>/<abbr_run_name>_viz_policy`,
- 
+
+## Visualizing a trained policy
+Once you have the trained policy you can set the appropriate `CAMERA_NAME`,  `ENV_NAME`, `VIZ_FOLDER` and `FULL_POLICY_PATH` (the trained policies are going to be saved in the `gen_data` folder) in the `viz_policy.py`. This will save multiple episodes of the trained policy being unrolled under `gen_data/results/vides/VIZ_FOLDER`.
+
 ## Bibliography
 
 If you use the code in this or associated repositories above, please cite the following paper.
 ```
-~~Put Cutation Here~~
+@INPROCEEDINGS{Jain-ICRA-19,
+    AUTHOR    = {Divye Jain AND Andrew Li AND Shivam Singhal AND 
+                 Aravind Rajeswaran AND Vikash Kumar AND Emanuel Todorov},
+    TITLE     = "{Learning Deep Visuomotor Policies for Dexterous Hand Manipulation}",
+    BOOKTITLE = {International Conference on Robotics and Automation (ICRA)},
+    YEAR      = {2019},
+}
 ```
