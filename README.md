@@ -9,7 +9,7 @@ This accompanies the [DAPG project](https://sites.google.com/view/deeprl-dextero
 The overall project is organized into three repositories:
 
 1. [mjrl](https://github.com/aravindr93/mjrl) provides a suite of learning algorithms for various continuous control tasks simulated in MuJoCo. This includes the NPG implementation and the DAPG algorithm used in the paper.
-2. [mj_envs](https://github.com/vikashplus/mj_envs) provides a suite of continuous control tasks simulated in MuJoCo, including the dexterous hand manipulation tasks used in the paper.
+2. [robohive](https://github.com/vikashplus/robohive) provides a suite of continuous control tasks simulated in MuJoCo, including the dexterous hand manipulation tasks used in the paper.
 3. [hand_dapg](https://github.com/aravindr93/hand_dapg) (this repository) serves as the landing page and contains the human demonstrations and pre-trained policies for the tasks.
 
 This modular organization was chosen to allow for rapid and independent developments along different directions such as algorithms and interesting tasks, and also to facilitate sharing of results with the broader research community.
@@ -18,8 +18,8 @@ This modular organization was chosen to allow for rapid and independent developm
 
 Each repository above contains detailed setup instructions. 
 1. **Step 1:** Install [mjrl](https://github.com/aravindr93/mjrl), using instructions in the repository ([direct link](https://github.com/aravindr93/mjrl/tree/master/setup)). `mjrl` comes with an anaconda environment which helps to easily import and use a variety of MuJoCo tasks.
-2. **Step 2:** Install [mj_envs](https://github.com/vikashplus/mj_envs) by following the instructions in the repository. Note that `mj_envs` uses git submodules, and hence must be cloned correctly per instructions in the repo.
-3. **Step 3:** After setting up `mjrl` and `mj_envs`, clone this repository and use the following commands to visualize the demonstrations and pre-trained policies.
+2. **Step 2:** Install [robohive](https://github.com/vikashplus/robohive/releases/tag/v0.0) by following the instructions in the repository. Note that `robohive` uses git submodules, and hence must be cloned correctly per instructions in the repo.
+3. **Step 3:** After setting up `mjrl` and `robohive`, clone this repository and use the following commands to visualize the demonstrations and pre-trained policies.
 
 ```
 $ cd dapg
